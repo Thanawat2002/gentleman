@@ -51,16 +51,16 @@ export class Users {
   @Prop({ required: true, unique: true })
   email: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   firstName: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   lastName: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   birthDate: Date;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   phone: string;
 
   @Prop({ type: AddressSchema })
@@ -70,6 +70,9 @@ export class Users {
 
   @Prop({ default: 'user' })
   role: string;
+
+  @Prop()
+  googleId: string;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

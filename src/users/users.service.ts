@@ -32,6 +32,10 @@ export class UsersService {
     }
   }
 
+  async findByEmail(email: string): Promise<Users> {
+    return this.usersModel.findOne({ email }).exec();
+  }
+
   async findAll(): Promise<Users[]> {
     return this.usersModel.find().exec();
   }
