@@ -18,12 +18,6 @@ export class AuthController {
   }
 
   @UseGuards(GoogleAuthGuard)
-  @Get('google')
-  async googleAuth(@Request() req) {
-    // Initiates the Google OAuth process
-  }
-
-  @UseGuards(GoogleAuthGuard)
   @Get('google/callback')
   async googleAuthRedirect(@Request() req, @Res({ passthrough: true }) res) {
     const { accessToken } = await this.authService.googleLogin(req);
